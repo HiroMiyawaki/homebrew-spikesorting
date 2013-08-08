@@ -8,8 +8,21 @@ class Klusters < Formula
   depends_on 'qt'
   depends_on 'libklustersshared'
 
+  option 'with-debug', 'Build with debug symbols'
+
+  env :std
+
   def install
-    system "cmake", ".", *std_cmake_args
+    if build.with? 'debug'
+      # Debug symbols need to find the source so build in the prefix
+      cp_r "#{pwd}", "#{prefix}/src"
+      cd "#{prefix}/src"
+
+      # Set build type to release with debug symbols
+      ENV.append "CXXFLAGS", "-g -O2"
+    end
+
+    system "cmake", ".", *std_cmake_args 
     system "make install"
   end
 end
