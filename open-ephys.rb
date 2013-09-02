@@ -2,8 +2,8 @@ require 'formula'
 
 class OpenEphys < Formula
   homepage 'http://open-ephys.org/#/gui/'
-  url  'https://github.com/open-ephys/GUI/archive/v0.1.tar.gz'
-  sha1 '903d19349ee09e7cbaf4ea389ee4f8845a7c3aca'
+  url  'https://github.com/open-ephys/GUI/archive/v0.2.tar.gz'
+  sha1 '4a43190637b06eee060503be8218388cb06ea9a1'
 
   head 'https://github.com/open-ephys/GUI.git', :using => :git
 
@@ -11,7 +11,7 @@ class OpenEphys < Formula
   depends_on 'libftdi'
 
   def install
-    system "xcodebuild install DSTROOT=#{prefix} INSTALL_PATH=/ SYMROOT=build OBJROOT=objroot -project Builds/MacOSX/open-ephys.xcodeproj -target open-ephys -configuration Release"
+    system "xcodebuild install DSTROOT=#{prefix} INSTALL_PATH=/ SYMROOT=build OBJROOT=objroot ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO -project Builds/MacOSX/open-ephys.xcodeproj -target open-ephys -configuration Release"
   end
 
    def caveats; <<-EOS.undent
