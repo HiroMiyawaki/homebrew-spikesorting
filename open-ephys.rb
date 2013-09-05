@@ -8,7 +8,6 @@ class OpenEphys < Formula
   head 'https://github.com/open-ephys/GUI.git', :using => :git
 
   depends_on :xcode => :build
-  depends_on 'libftdi'
 
   def install
     system "xcodebuild install DSTROOT=#{prefix} INSTALL_PATH=/ SYMROOT=build OBJROOT=objroot ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO -project Builds/MacOSX/open-ephys.xcodeproj -target open-ephys -configuration Release"
