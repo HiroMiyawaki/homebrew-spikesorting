@@ -14,6 +14,11 @@ class Maskedklustakwik < Formula
     bin.install "KlustaKwik" => "maskedklustakwik"
   end
 
+  def caveats; <<-EOS.undent
+      Renamed Klustakwik to maskedklustakwik to avoid name conflicts with non-masked klustakwik (version 2.x).
+    EOS
+  end
+
   test do
     system "maskedklustakwik"
   end
