@@ -3,8 +3,8 @@ require 'formula'
 class Klustaviewa < Formula
   homepage 'http://klusta-team.github.io/klustaviewa/'
   url 'http://klustaviewa.rossant.net/klustaviewa-0.1.0.dev.zip'
-  sha1 '39101243bb0d3630edafd7aea28e98d2d7676d4c'
-  head 'https://github.com/rossant/klustaviewa.git'
+  sha1 'ddccd0b46757e38ba1518910028cbe9436db1561'
+  head 'https://github.com/klusta-team/klustaviewa.git'
 
   depends_on 'qt'
   depends_on 'pyqt'
@@ -17,6 +17,15 @@ class Klustaviewa < Formula
   def install
     system "mkdir -p #{prefix}/lib/python2.7/site-packages"
     system python, "setup.py", "install", "--prefix=#{prefix}", "--single-version-externally-managed", "--record=installed.txt"
+  end
+
+def caveats; <<-EOS.undent
+        This formula is OUTDATED.
+
+        If you want a newer version, please uninstall this homebrew 
+        package and run (--upgrade might be needed in certain cases):
+          pip install klustaviewa [--upgrade]
+    EOS
   end
 
   test do
