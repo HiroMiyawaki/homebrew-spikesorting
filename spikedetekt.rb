@@ -1,8 +1,5 @@
 require 'formula'
 
-# Documentation: https://github.com/mxcl/homebrew/wiki/Formula-Cookbook
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class Spikedetekt < Formula
   homepage 'http://klusta-team.github.io/spikedetekt/'
   url 'http://downloads.sourceforge.net/project/spikedetekt/SpikeDetekt0.1.2.tar.gz'
@@ -17,6 +14,15 @@ class Spikedetekt < Formula
 
   def install
     system python, "setup.py", "install", "--prefix=#{prefix}", "--single-version-externally-managed", "--record=installed.txt"
+  end
+
+  def caveats; <<-EOS.undent
+        This formula is OUTDATED.
+
+        If you want a newer version, please uninstall this homebrew 
+        package and run (--upgrade might be needed in certain cases):
+          pip install spikedetekt [--upgrade]
+    EOS
   end
 
   test do
