@@ -2,8 +2,8 @@ require 'formula'
 
 class OpenEphys < Formula
   homepage 'http://open-ephys.org/#/gui/'
-  url  'https://github.com/open-ephys/GUI/archive/v0.2.tar.gz'
-  sha1 '4a43190637b06eee060503be8218388cb06ea9a1'
+  url  'https://github.com/open-ephys/GUI/archive/v0.2.8.tar.gz'
+  sha1 '5e6058ff8eb0a7e76b03cced38f117764db7cd18'
 
   head 'https://github.com/open-ephys/GUI.git', :using => :git
 
@@ -18,8 +18,8 @@ class OpenEphys < Formula
 
       To install the Mac OS X wrapper application run:
         brew linkapps [--system]
-      
-      If the optional '--system' flag is not set, the wrapper 
+
+      If the optional '--system' flag is not set, the wrapper
       is installed into '~/Applications/' instead of '/Applications/'.
 
       Alternativly you can also run:
