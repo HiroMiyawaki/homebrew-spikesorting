@@ -2,11 +2,13 @@ require 'formula'
 
 class OpenEphys < Formula
   homepage 'http://open-ephys.org/#/gui/'
-  url  'https://github.com/open-ephys/GUI/archive/v0.2.8.tar.gz'
-  sha1 '5e6058ff8eb0a7e76b03cced38f117764db7cd18'
+  url  'https://github.com/open-ephys/GUI/archive/v0.3.4.tar.gz'
+  sha1 '892bf172321fe9f0195df7d19ad6688800b19d8b'
 
   head 'https://github.com/open-ephys/GUI.git', :using => :git
 
+  depends_on 'hdf5' => "with-cxx"
+  depends_on 'zeromq'
   depends_on :xcode => :build
 
   def install
