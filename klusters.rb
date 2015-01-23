@@ -2,6 +2,9 @@ require 'formula'
 
 class Klusters < Formula
   homepage 'http://klusters.sourceforge.net/'
+  url 'http://downloads.sourceforge.net/project/neurosuite/sources/klusters-2.0.0.tar.gz'
+  sha1 '9f38ec9cd0a3eee6fbd70499b7fa0735ed0877e3'
+
   head 'http://git.code.sf.net/p/klusters/klusters', :using => :git
 
   depends_on 'cmake' => :build

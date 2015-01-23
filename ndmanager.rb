@@ -2,6 +2,9 @@ require 'formula'
 
 class Ndmanager < Formula
   homepage 'http://ndmanager.sourceforge.net/'
+  url 'http://downloads.sourceforge.net/project/neurosuite/sources/ndmanager-2.0.0.tar.gz'
+  sha1 '80ce4d947720b6b5ce773e3afdd30d73446d3ae3'
+
   head 'http://git.code.sf.net/p/ndmanager/code', :using => :git
 
   depends_on 'cmake' => :build

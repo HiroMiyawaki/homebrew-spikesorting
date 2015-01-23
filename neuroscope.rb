@@ -2,6 +2,9 @@ require 'formula'
 
 class Neuroscope < Formula
   homepage 'http://neuroscope.sourceforge.net/'
+  url 'http://downloads.sourceforge.net/project/neurosuite/sources/neuroscope-2.0.0.tar.gz' 
+  sha1 '474609b8dbbc883da860ff84f73ada0726932971'
+
   head 'http://git.code.sf.net/p/neuroscope/code', :using => :git
 
   depends_on 'cmake' => :build
