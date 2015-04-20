@@ -6,6 +6,7 @@ class NdmanagerPlugins < Formula
   sha1 '21ce54399259a35e9da24a98bbf6f2b2e48f1ec0'
 
   depends_on 'docbook-xsl' => :build
+  depends_on "pkg-config" => :build
 
   depends_on 'sdl'
   depends_on 'gsl'
