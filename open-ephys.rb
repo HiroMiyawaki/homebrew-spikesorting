@@ -1,15 +1,14 @@
-require 'formula'
-
 class OpenEphys < Formula
   homepage 'http://open-ephys.org/#/gui/'
-  url  'https://github.com/open-ephys/GUI/archive/v0.3.4.tar.gz'
-  sha1 '892bf172321fe9f0195df7d19ad6688800b19d8b'
+  url 'https://github.com/open-ephys/GUI/archive/v0.3.5.tar.gz'
+  sha256 'f7601c8443838a35149fc681f7ba4020e00368b44077bf0d90d161d5218257256e'
 
   head 'https://github.com/open-ephys/GUI.git', :using => :git
 
+  depends_on :xcode => :build
+
   depends_on 'hdf5' => "with-cxx"
   depends_on 'zeromq'
-  depends_on :xcode => :build
 
   def install
     system "xcodebuild install DSTROOT=#{prefix} INSTALL_PATH=/ SYMROOT=build OBJROOT=objroot ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO -project Builds/MacOSX/open-ephys.xcodeproj -target open-ephys -configuration Release"
