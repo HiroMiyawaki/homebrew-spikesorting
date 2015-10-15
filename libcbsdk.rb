@@ -17,8 +17,4 @@ class Libcbsdk < Formula
     system "cmake", ".", *args
     system "make", "install"
   end
-
-  test do
-    system "test", "-e", "#{lib}/libcbsdk.dylib"
-  end
 end

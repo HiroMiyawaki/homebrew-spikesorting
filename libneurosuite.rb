@@ -17,8 +17,4 @@ class Libneurosuite < Formula
     system "cmake", ".", *args
     system "make", "install"
   end
-
-  test do
-    system "test", "-e", "#{lib}/libneurosuite.dylib"
-  end
 end
