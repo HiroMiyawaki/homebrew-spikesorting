@@ -1,14 +1,14 @@
 class Libneurosuite < Formula
-  desc "Library for shared functionality between Klusters, Neuroscope and NDManager"
+  desc "Support library for Klusters, Neuroscope and NDManager"
   homepage "https://neurosuite.github.io"
   url "https://github.com/neurosuite/libneurosuite/archive/v2.0.0.tar.gz"
-  version "2.0.0"
-  sha256 "28fce747b8213dc822effefb764060b08dd9d1a7f8f20ae6344a661f6bd0d569"
+  sha256 "4a902fcbe027a03c792e01ce6465f46c65340514ec578ca5dcd71e240aac195b"
+  head "https://github.com/neurosuite/libneurosuite.git"
 
   depends_on "cmake" => :build
 
-  depends_on "qt5" if build.without? "qt4"
   depends_on "qt4" => :optional
+  depends_on "qt5" if build.without? "qt4"
 
   def install
     args = std_cmake_args
