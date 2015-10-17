@@ -1,14 +1,14 @@
 class Libcbsdk < Formula
   desc "Library to interact with Blackrock Microsystems neural signal processing hardware"
   homepage "https://neurosuite.github.io"
-  url "https://github.com/neurosuite/libcbsdk/archive/v6.4.0.tar.gz"
-  version "6.4.0"
-  sha256 "7b4d2efd6a502aa4a41ced3e4e23fc3cc7cef73f97d76c0394d93826feeb2e40"
+  url "https://github.com/neurosuite/libcbsdk/archive/v6.4.1.tar.gz"
+  sha256 "46222dd1d930f23e5c7f7e14835b0bee4edc296501fe9ba86c43fe70169db4b5"
+  head "https://github.com/neurosuite/libcbsdk.git"
 
   depends_on "cmake" => :build
 
-  depends_on "qt5" if build.without? "qt4"
   depends_on "qt4" => :optional
+  depends_on "qt5" if build.without? "qt4"
 
   def install
     args = std_cmake_args
