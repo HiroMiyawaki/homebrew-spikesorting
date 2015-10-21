@@ -1,31 +1,22 @@
-require 'formula'
-
 class Neuroscope < Formula
-  homepage 'http://neuroscope.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/neurosuite/sources/neuroscope-2.0.0.tar.gz' 
-  sha1 '474609b8dbbc883da860ff84f73ada0726932971'
+  desc "An advanced viewer for electrophysiological and behavioral data"
+  homepage "https://neurosuite.github.io"
+  url "https://github.com/neurosuite/neuroscope/archive/v2.1.0.tar.gz"
+  sha256 "68c45bc1a96354b936f69d9b3f72a5260e06c6856bd5a6f52a27cc22c46f16e0"
+  head "https://github.com/neurosuite/neuroscope.git"
 
-  head 'http://git.code.sf.net/p/neuroscope/code', :using => :git
+  depends_on "cmake" => :build
 
-  depends_on 'cmake' => :build
-  depends_on 'qt'
-  depends_on 'libklustersshared'
-  
-  option 'with-debug', 'Build with debug symbols'
+  depends_on "qt5"
+  depends_on "libneurosuite"
 
-  env :std
+  depends_on "libcbsdk" => :optional
 
   def install
-    if build.with? 'debug'
-      # Debug symbols need to find the source so build in the prefix
-      cp_r "#{pwd}", "#{prefix}/src"
-      cd "#{prefix}/src"
+    args = std_cmake_args
+    args << "-DWITH_CEREBUS=ON" if build.with? "libcbsdk"
 
-      # Set build to release with debug symbols
-      ENV.append "CXXFLAGS", "-g -O2"
-    end
-
-    system "cmake", ".", *std_cmake_args
-    system "make install"
+    system "cmake", ".", *args
+    system "make", "install"
   end
 end
