@@ -2,7 +2,8 @@ class Neuroscope < Formula
   desc "An advanced viewer for electrophysiological and behavioral data"
   homepage "https://neurosuite.github.io"
   url "https://github.com/neurosuite/neuroscope/archive/v2.1.0.tar.gz"
-  sha256 "68c45bc1a96354b936f69d9b3f72a5260e06c6856bd5a6f52a27cc22c46f16e0"
+  sha256 "da39ef4611d3400ac2e6a479a5a862d3f26c6347034a1de67e68911e1b9ee28a"
+
   head "https://github.com/neurosuite/neuroscope.git"
 
   depends_on "cmake" => :build
