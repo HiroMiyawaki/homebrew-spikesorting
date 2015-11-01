@@ -15,7 +15,9 @@ class NdmanagerPlugins < Formula
 
   def patches
     # Fixes bash colors, strdupa and sed syntax differences. Second patch cleans up makefiles
-    { :p0 => [ "https://gist.github.com/FloFra/6353466/raw", "https://gist.github.com/FloFra/6367345/raw" ]}
+    { :p0 => [ "https://gist.github.com/FloFra/6353466/raw",
+               "https://gist.github.com/FloFra/6367345/raw",
+               "https://gist.github.com/FloFra/46a604abccbd703cb463/raw" ]}
   end
   
   def install
@@ -42,6 +44,11 @@ class NdmanagerPlugins < Formula
     rm 'scripts/ndm_extractleds'
     rm 'descriptions/ndm_extractleds.xml'
     
+    # Remove process_merge since it can not be build with clang (VLA)
+    rm_r 'src/process_merge'
+    rm 'scripts/ndm_mergedat'
+    rm 'descriptions/ndm_mergedat.xml'
+
     # Set install dir correctly. ToDo: Use inreplace instead.
     system "for file in \$(grep -rl 'INSTALL_DIR =' .); do sed -i '' 's;INSTALL_DIR = /usr;INSTALL_DIR = #{prefix};' \$file; done"
 
@@ -53,7 +60,7 @@ class NdmanagerPlugins < Formula
   end
 
   def caveats; <<-EOS.undent
-      The following plugins are unbuildable and were deactivated: ndm_extractleds and process_extractleds (missing x64 support).
+      The following plugins are unbuildable and were deactivated: ndm_mergedat and process_merge (clang does not support VLA), ndm_extractleds and process_extractleds (missing x64 support).
     EOS
   end
 
