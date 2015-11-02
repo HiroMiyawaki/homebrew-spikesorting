@@ -8,6 +8,7 @@ class NdmanagerPlugins < Formula
   depends_on 'docbook-xsl' => :build
   depends_on "pkg-config" => :build
 
+  depends_on :python
   depends_on 'sdl'
   depends_on 'gsl'
   depends_on 'libsamplerate'
@@ -17,7 +18,7 @@ class NdmanagerPlugins < Formula
     # Fixes bash colors, strdupa and sed syntax differences. Second patch cleans up makefiles
     { :p0 => [ "https://gist.github.com/FloFra/6353466/raw",
                "https://gist.github.com/FloFra/6367345/raw",
-               "https://gist.github.com/FloFra/46a604abccbd703cb463/raw" ]}
+	       "https://gist.githubusercontent.com/FloFra/46a604abccbd703cb463/raw/767d44e1c77cdaac3bac65f7ffbd0145165867de/ndmanager-plugins_removeartefact-main-return-type.patch"]}
   end
   
   def install
