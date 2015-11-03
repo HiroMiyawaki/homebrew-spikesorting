@@ -18,7 +18,7 @@ class NdmanagerPlugins < Formula
     # Fixes bash colors, strdupa and sed syntax differences. Second patch cleans up makefiles
     { :p0 => [ "https://gist.github.com/FloFra/6353466/raw/70f2c3f52ec63dd9f1e669c6ec394e45c8b089fa",
                "https://gist.github.com/FloFra/6367345/raw/268d9b110d42985df48e3668d80ff326d369aa65",
-               "https://gist.github.com/FloFra/46a604abccbd703cb463/raw/767d44e1c77cdaac3bac65f7ffbd0145165867de" }
+               "https://gist.github.com/FloFra/46a604abccbd703cb463/raw/767d44e1c77cdaac3bac65f7ffbd0145165867de"] }
   end
   
   def install
