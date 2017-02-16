@@ -3,7 +3,7 @@ require 'formula'
 class Spikedetekt < Formula
   homepage 'http://klusta-team.github.io/spikedetekt/'
   url 'http://downloads.sourceforge.net/project/spikedetekt/SpikeDetekt0.1.2.tar.gz'
-  sha1 'c92d9ddfc668a26aef9ba55c282507ba23e310b3'
+  sha256 '682afe5a55f3cf89de805a2b2552ac8ad054ed28643e00301a0809bc219edf67'
   head 'https://github.com/klusta-team/spikedetekt.git'
 
   depends_on :python

@@ -6,8 +6,7 @@ require 'formula'
 class Maskedklustakwik < Formula
   homepage 'http://klustakwik.sourceforge.net/'
   url 'http://downloads.sourceforge.net/project/klustakwik/maskedKlustaKwik/KlustaKwik-3.0.2.bz2'
-  sha1 '4e5bfabbb65b8f6b72b5c3e87374abb2180a28c6'
-
+  sha256 'acdd9a71675d2c0b64809d7f67118eebdb42df1eddfc170b9a00fc8a37dac5b6'
 
   def install
     system "make"

@@ -1,4 +1,6 @@
 class Libcbsdk < Formula
+:q
+
   desc "Library to interact with Blackrock Microsystems NSP hardware"
   homepage "https://neurosuite.github.io"
   url "https://github.com/neurosuite/libcbsdk/archive/v6.4.1.tar.gz"

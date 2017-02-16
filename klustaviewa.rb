@@ -3,10 +3,10 @@ require 'formula'
 class Klustaviewa < Formula
   homepage 'http://klusta-team.github.io/klustaviewa/'
   url 'http://klustaviewa.rossant.net/klustaviewa-0.1.0.dev.zip'
-  sha1 'ddccd0b46757e38ba1518910028cbe9436db1561'
+  sha256 'b1f87b198dff167c8ac994feceec12f23a4f43f18589b6d90bf34cc4d6726c71'
   head 'https://github.com/klusta-team/klustaviewa.git'
 
-  depends_on 'qt'
+  depends_on 'qt5'
   depends_on 'pyqt'
   depends_on :python
   depends_on 'numpy' => :python
