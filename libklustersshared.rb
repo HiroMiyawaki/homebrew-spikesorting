@@ -3,12 +3,12 @@ require 'formula'
 class Libklustersshared < Formula
   homepage 'http://klusters.sourceforge.net/'
   url 'http://downloads.sourceforge.net/project/neurosuite/sources/libklustersshared-2.0.0.tar.gz'
-  sha1 'f36cb3404c589cc79fcfc961633b1d626a4a7fa1'
+  sha256 '560d0c820e469fa054a65a40f1cd95eb99b812e677f87afafaf1b503dfcfbd35'
 
   head 'http://git.code.sf.net/p/klusters/libklustersshared', :using =>  :git
 
   depends_on 'cmake' => :build
-  depends_on 'qt'
+  depends_on 'qt5'
 
   option 'with-debug', 'Build with debug symbols'
 
