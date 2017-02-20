@@ -24,12 +24,15 @@ class Libklustersshared < Formula
       ENV.append "CXXFLAGS", "-g -O2"
     end
 
-    system "cmake" , ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
-
-    inreplace 'src/gui/*' do |s|
+    inreplace 'src/gui/qhelpviewer.cpp' do |s|
+      s.gsub! 'QWeb', 'QWebEngine' 
+    end    
+    
+    inreplace 'src/gui/qhelpviewer.h' do |s|
       s.gsub! 'QWeb', 'QWebEngine' 
     end    
 
+    system "cmake" , ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
     system "make install"
   end
 end
