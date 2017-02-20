@@ -30,7 +30,24 @@ class Ndmanager < Formula
       ENV.append "CXXFLAGS", "-g -O2"
     end
 
-    system "cmake", ".", *std_cmake_args
+   inreplace 'src/gui/queryoutputdialog.h' do |s|
+      s.gsub! '#include <QWebView>', '#include <QtWebEngineWidgets>' 
+      s.gsub! 'QWebView', 'QWebEngineView' 
+   end
+
+   inreplace 'src/gui/queryoutputdialog.cpp' do |s|
+      s.gsub! '#include <QWebSettings>', '' 
+      s.gsub! 'QWebSettings', 'QWebEngineSettings' 
+      s.gsub! 'QWebView','QWebEngineView'
+      s.gsub! 'html->settings()->setAttribute(QWebEngineSettings::JavaEnabled,false);',''
+
+   end   
+   
+   inreplace 'src/CMakeLists.txt','add_executable(ndmanager WIN32 ${ndmanager_SRCS} )',"add_executable(ndmanager WIN32 ${ndmanager_SRCS} )\nQT5_USE_MODULES(ndmanager WebEngineWidgets)"
+
+
+
+    system "cmake", ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
     system "make install"
   end
 end
