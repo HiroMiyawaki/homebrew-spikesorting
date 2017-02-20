@@ -35,7 +35,6 @@ class Libklustersshared < Formula
     end    
 
     inreplace 'src/CMakeList.txt','add_library (klustersshared SHARED ${libklustersshared_SRCS} ${translateSrcs})', "add_library \(klustersshared SHARED \$\{libklustersshared_SRCS\} \$\{translateSrcs\}) \n QT5_USE_MODULES\(klustersshared WebEngineWidgets\)"
-    end
 
     inreplace 'src/gui/qhelpviewer.h' do |s|
       s.gsub! 'QWeb', 'QWebEngine' 
