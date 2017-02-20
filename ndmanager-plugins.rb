@@ -2,8 +2,8 @@ require 'formula'
 
 class NdmanagerPlugins < Formula
   homepage 'http://ndmanager.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/ndmanager/ndmanager-plugins/ndmanager-plugins-1.4.7/ndmanager-plugins_1.4.7.tar.gz'
-  sha256 '7e5b315d34e56a3370dba1c3453eee74052d933bf07cff5aebb83566ef63b758'
+  url 'https://sourceforge.net/projects/neurosuite/files/sources/ndmanager-plugins-1.4.14.tar.gz'
+  sha256 'f541bfc1e4d9ad7f2ab6523b2a5664265cf6ae4cd55517de2fa9c4fc6bb50a90'
 
   depends_on 'docbook-xsl' => :build
   depends_on "pkg-config" => :build
