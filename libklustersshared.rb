@@ -26,7 +26,7 @@ class Libklustersshared < Formula
 
     system "cmake" , ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
 
-    inreplace 'src/gui/makefile' do |s|
+    inreplace 'src/gui/*' do |s|
       s.gsub! 'QWeb', 'QWebEngine' 
     end    
 
