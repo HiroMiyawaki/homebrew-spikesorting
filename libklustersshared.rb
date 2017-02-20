@@ -34,8 +34,7 @@ class Libklustersshared < Formula
       s.gsub! 'mView->page()'  '//mView->page()'
     end    
 
-    inreplace 'src/CMakeList.txt' do |s|
-      s.gsub! 'add_library (klustersshared SHARED ${libklustersshared_SRCS} ${translateSrcs})', /add_library \(klustersshared SHARED \$\{libklustersshared_SRCS\} \$\{translateSrcs\}) \n QT5_USE_MODULES\(klustersshared WebEngineWidgets\)/
+    inreplace 'src/CMakeList.txt','add_library (klustersshared SHARED ${libklustersshared_SRCS} ${translateSrcs})', "add_library \(klustersshared SHARED \$\{libklustersshared_SRCS\} \$\{translateSrcs\}) \n QT5_USE_MODULES\(klustersshared WebEngineWidgets\)"
     end
 
     inreplace 'src/gui/qhelpviewer.h' do |s|
