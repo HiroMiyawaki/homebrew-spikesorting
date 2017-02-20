@@ -26,15 +26,15 @@ class Libklustersshared < Formula
 
 
 
-   # inreplace 'src/gui/qhelpviewer.cpp' do |s|
-   #   s.gsub! '#include <QWebEngineView>', '#include <QtWebEngineWidgets>' 
+   inreplace 'src/gui/qhelpviewer.cpp' do |s|
+      s.gsub! '#include <QWebEngineView>', '#include <QtWebEngineWidgets>' 
    #   s.gsub! '#include <QWebEnginePage>', '' 
    #   s.gsub! 'QWebView', 'QWebEngineView' 
    #   s.gsub! 'QWebPage', 'QWebEnginePage'
    #   s.gsub! 'mView->page()'  '//mView->page()'
-   # end    
+   end    
 
-    inreplace 'src/CMakeList.txt','add_library (klustersshared SHARED ${libklustersshared_SRCS} ${translateSrcs})', "add_library \(klustersshared SHARED \$\{libklustersshared_SRCS\} \$\{translateSrcs\}) \n QT5_USE_MODULES\(klustersshared WebEngineWidgets\)"
+    inreplace 'src/CMakeLists.txt','add_library (klustersshared SHARED ${libklustersshared_SRCS} ${translateSrcs})', "add_library \(klustersshared SHARED \$\{libklustersshared_SRCS\} \$\{translateSrcs\}) \n QT5_USE_MODULES\(klustersshared WebEngineWidgets\)"
 
     inreplace 'src/gui/qhelpviewer.h' do |s|
       s.gsub! 'QWeb', 'QWebEngine' 
