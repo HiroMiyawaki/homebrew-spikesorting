@@ -18,22 +18,22 @@ class NdmanagerPlugins < Formula
   
   def install
 
-    # Make sure sdl, gsl are found.
-    inreplace 'src/process_pca/makefile' do |s|
-      s.gsub! '-L/usr/lib'    , "-L#{HOMEBREW_PREFIX}/lib"
-      s.gsub! '-I/usr/include', "-I#{HOMEBREW_PREFIX}/include"
-    end
-
-    # Make sure pyqt is found
-    inreplace 'python/ndm_checkconsistency/makefile' do |s|
-      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic4" 
-      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc4" 
-    end
-
-    inreplace 'python/ndm_prepare/makefile' do |s|
-      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic4" 
-      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc4" 
-    end
+#    # Make sure sdl, gsl are found.
+#    inreplace 'src/process_pca/makefile' do |s|
+#      s.gsub! '-L/usr/lib'    , "-L#{HOMEBREW_PREFIX}/lib"
+#      s.gsub! '-I/usr/include', "-I#{HOMEBREW_PREFIX}/include"
+#    end
+#
+#    # Make sure pyqt is found
+#    inreplace 'python/ndm_checkconsistency/makefile' do |s|
+#      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic4" 
+#      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc4" 
+#    end
+#
+#    inreplace 'python/ndm_prepare/makefile' do |s|
+#      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic4" 
+#      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc4" 
+#    end
 
     # Removed 'extractled' since it can not be build for x64
     rm_r 'src/process_extractleds'
