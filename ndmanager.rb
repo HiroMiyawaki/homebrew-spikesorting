@@ -30,12 +30,12 @@ class Ndmanager < Formula
       ENV.append "CXXFLAGS", "-g -O2"
     end
 
-   inreplace 'src/gui/queryoutputdialog.h' do |s|
+   inreplace 'src/queryoutputdialog.h' do |s|
       s.gsub! '#include <QWebView>', '#include <QtWebEngineWidgets>' 
       s.gsub! 'QWebView', 'QWebEngineView' 
    end
 
-   inreplace 'src/gui/queryoutputdialog.cpp' do |s|
+   inreplace 'src/queryoutputdialog.cpp' do |s|
       s.gsub! '#include <QWebSettings>', '' 
       s.gsub! 'QWebSettings', 'QWebEngineSettings' 
       s.gsub! 'QWebView','QWebEngineView'
