@@ -51,8 +51,8 @@ class NdmanagerPlugins < Formula
     # Make sure xml docbook files can be found, to make sure local version is used.
     ENV['XML_CATALOG_FILES'] = "#{etc}/xml/catalog"
 
-     system "cmake", ".", *std_cmake_args
-     system "make install"
+    system "cmake", ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
+    system "make install"
   end
 
   def caveats; <<-EOS.undent
