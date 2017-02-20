@@ -30,8 +30,8 @@ class Libklustersshared < Formula
       s.gsub! '#include <QWebView>', '#include <QtWebEngineWidgets>' 
       s.gsub! '#include <QWebPage>', '' 
       s.gsub! 'QWebView', 'QWebEngineView' 
-   #   s.gsub! 'QWebPage', 'QWebEnginePage'
-   #   s.gsub! 'mView->page()'  '//mView->page()'
+      s.gsub! 'QWebPage', 'QWebEnginePage'
+      s.gsub! 'mView->page()'  '//mView->page()'
    end    
 
     inreplace 'src/CMakeLists.txt','add_library (klustersshared SHARED ${libklustersshared_SRCS} ${translateSrcs})', "add_library \(klustersshared SHARED \$\{libklustersshared_SRCS\} \$\{translateSrcs\}) \n QT5_USE_MODULES\(klustersshared WebEngineWidgets\)"
