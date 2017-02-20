@@ -12,7 +12,7 @@ class NdmanagerPlugins < Formula
   depends_on 'sdl'
   depends_on 'gsl'
   depends_on 'libsamplerate'
-  depends_on 'pyqt'
+  depends_on 'pyqt5'
 
   def patches
     # Fixes bash colors, strdupa and sed syntax differences. Second patch cleans up makefiles
