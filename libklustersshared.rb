@@ -24,10 +24,20 @@ class Libklustersshared < Formula
       ENV.append "CXXFLAGS", "-g -O2"
     end
 
+
+
     inreplace 'src/gui/qhelpviewer.cpp' do |s|
-      s.gsub! 'QWeb', 'QWebEngine' 
+      s.gsub! '#include <QWebEngineView>', '#include <QtWebEngineWidgets>' 
+      s.gsub! '#include <QWebEnginePage>', 
+      s.gsub! 'QWebView', 'QWebEngineView' 
+      s.gsub! 'QWebPage', 'QWebEnginePage'
+      s.gsub! 'mView->page()'  '//mView->page()'
     end    
-    
+
+    inreplace 'src/CMakeList.txt' do |s|
+      s.gsub! 'add_library (klustersshared SHARED ${libklustersshared_SRCS} ${translateSrcs})', /add_library \(klustersshared SHARED \$\{libklustersshared_SRCS\} \$\{translateSrcs\}) \n QT5_USE_MODULES\(klustersshared WebEngineWidgets\)/
+    end
+
     inreplace 'src/gui/qhelpviewer.h' do |s|
       s.gsub! 'QWeb', 'QWebEngine' 
     end    
