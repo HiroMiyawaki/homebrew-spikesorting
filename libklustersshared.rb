@@ -28,7 +28,7 @@ class Libklustersshared < Formula
 
    inreplace 'src/gui/qhelpviewer.cpp' do |s|
       s.gsub! '#include <QWebView>', '#include <QtWebEngineWidgets>' 
-   #   s.gsub! '#include <QWebPage>', '' 
+      s.gsub! '#include <QWebPage>', '' 
       s.gsub! 'QWebView', 'QWebEngineView' 
    #   s.gsub! 'QWebPage', 'QWebEnginePage'
    #   s.gsub! 'mView->page()'  '//mView->page()'
