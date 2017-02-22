@@ -51,7 +51,7 @@ class NdmanagerPlugins < Formula
     rm 'descriptions/ndm_mergedat.xml'
 
     # Set install dir correctly. ToDo: Use inreplace instead.
-    system "for file in \$(grep -rl 'INSTALL_DIR =' .); do sed -i '' 's;INSTALL_DIR = /usr;INSTALL_DIR = #{prefix};' \$file; done"
+    system "for file in \$(grep -rl 'INSTALL_DIR =' .); do sed -i '' 's;INSTALL_DIR = /usr;INSTALL_DIR = /usr/local;' \$file; done"
 
     system "for file in \$(grep -rl 'INSTALLDIR = /usr' .); do sed -i '' 's;INSTALLDIR = /usr;INSTALLDIR = /usr/local;' \$file; done"
 
