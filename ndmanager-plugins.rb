@@ -51,7 +51,7 @@ class NdmanagerPlugins < Formula
       s.gsub! 'all: lib $(EXEC) doc','all: $(EXEC) doc'
       s.gsub! 'LIBS = -L/usr/lib','LIBS = -L/usr/local/lib'
       s.gsub! 'LIBSR_DIR = $(LIBSR)-0.1.8', ''
-      s.gsub! 'LIBSRA = $(LIBSR_DIR)/src/.libs/$(LIBSR).a', 'LIBSRA = $(LIBSR).a'    
+      s.gsub! 'LIBSRA = $(LIBSR_DIR)/src/.libs/$(LIBSR).a', 'LIBSRA = /usr/local/lib/$(LIBSR).a'    
     end
     rm_r 'src/process_resample/libsamplerate-0.1.8'
 
