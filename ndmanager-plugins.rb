@@ -48,8 +48,8 @@ class NdmanagerPlugins < Formula
     end
 
     inreplace 'src/process_resample/makefile' do |s|
-      s.gsub! 'all: lib $(EXEC) doc' 'all: $(EXEC) doc'
-      s.gsub! 'LIBS = -L/usr/lib'  'LIBS = -L/usr/local/lib'
+      s.gsub! 'all: lib $(EXEC) doc','all: $(EXEC) doc'
+      s.gsub! 'LIBS = -L/usr/lib','LIBS = -L/usr/local/lib'
     end
 
 
