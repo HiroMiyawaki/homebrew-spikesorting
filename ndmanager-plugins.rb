@@ -24,11 +24,11 @@ class NdmanagerPlugins < Formula
   def install
 
 #    # Make sure sdl, gsl are found.
-#    inreplace 'src/process_pca/makefile' do |s|
-#      s.gsub! '-L/usr/lib'    , "-L#{HOMEBREW_PREFIX}/lib"
-#      s.gsub! '-I/usr/include', "-I#{HOMEBREW_PREFIX}/include"
-#    end
-#
+    inreplace 'src/process_pca/makefile' do |s|
+      s.gsub! '-L/usr/lib'    , "-L#{HOMEBREW_PREFIX}/lib"
+      s.gsub! '-I/usr/include', "-I#{HOMEBREW_PREFIX}/include"
+    end
+
     # Make sure pyqt is found
     inreplace 'python/ndm_checkconsistency/makefile' do |s|
       s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic5" 
