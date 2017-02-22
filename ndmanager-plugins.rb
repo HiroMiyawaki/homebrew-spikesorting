@@ -2,8 +2,8 @@ require 'formula'
 
 class NdmanagerPlugins < Formula
   homepage 'http://ndmanager.sourceforge.net/'
-  url 'https://sourceforge.net/projects/neurosuite/files/sources/ndmanager-plugins-1.4.14.tar.gz'
-  sha256 'f541bfc1e4d9ad7f2ab6523b2a5664265cf6ae4cd55517de2fa9c4fc6bb50a90'
+  url 'http://downloads.sourceforge.net/project/ndmanager/ndmanager-plugins/ndmanager-plugins-1.4.7/ndmanager-plugins_1.4.7.tar.gz'
+  sha256 '7e5b315d34e56a3370dba1c3453eee74052d933bf07cff5aebb83566ef63b758'
 
   depends_on 'docbook-xsl' => :build
   depends_on "pkg-config" => :build
@@ -12,9 +12,14 @@ class NdmanagerPlugins < Formula
   depends_on 'sdl'
   depends_on 'gsl'
   depends_on 'libsamplerate'
-  depends_on 'pyqt5'
+  depends_on 'pyqt'
 
-
+  def patches
+    # Fixes bash colors, strdupa and sed syntax differences. Second patch cleans up makefiles
+    { :p0 => [ "https://gist.github.com/FloFra/6353466/raw/70f2c3f52ec63dd9f1e669c6ec394e45c8b089fa/ndmanager-plugins_os-x.patch",
+               "https://gist.github.com/FloFra/6367345/raw/268d9b110d42985df48e3668d80ff326d369aa65/ndmanager-plugins_makefile-cleanup.patch",
+               "https://gist.github.com/FloFra/46a604abccbd703cb463/raw/767d44e1c77cdaac3bac65f7ffbd0145165867de/ndmanager-plugins_removeartefact-main-return-type.patch"] }
+  end
   
   def install
 
@@ -51,11 +56,7 @@ class NdmanagerPlugins < Formula
     # Make sure xml docbook files can be found, to make sure local version is used.
     ENV['XML_CATALOG_FILES'] = "#{etc}/xml/catalog"
 
-    inreplace 'src/CMakeLists.txt' do |s|
-      s.gsub! 'add_subdirectory(process_extractleds)', '' 
-      s.gsub! 'add_subdirectory(process_merge)', '' 
-   end  
-    system "cmake", ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
+    system "make"
     system "make install"
   end
 
