@@ -40,6 +40,16 @@ class NdmanagerPlugins < Formula
       s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc5" 
     end
 
+   inreplace 'python/ndm_prepare/makefile' do |s|
+      s.gsub! '@echo "Making all in $(PYTHON_DIR)..."; (cd $(PYTHON_DIR); $(MAKE));', ''
+      s.gsub! '@(cd $(PYTHON_DIR)$$i; $(MAKE) clean);', ''
+      s.gsub! '@(cd $(PYTHON_DIR); $(MAKE) install);', ''
+      s.gsub! '@(cd $(PYTHON_DIR)$$i; $(MAKE) uninstall);', ''
+    end
+
+
+
+
     # Removed 'extractled' since it can not be build for x64
     rm_r 'src/process_extractleds'
     rm 'scripts/ndm_extractleds'
