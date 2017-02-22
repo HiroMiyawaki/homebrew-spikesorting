@@ -24,11 +24,11 @@ class NdmanagerPlugins < Formula
   def install
 
 #    # Make sure sdl, gsl are found.
-    inreplace 'src/process_pca/makefile' do |s|
-      s.gsub! '-L/usr/lib'    , "-L#{HOMEBREW_PREFIX}/lib"
-      s.gsub! '-I/usr/include', "-I#{HOMEBREW_PREFIX}/include"
-    end
-
+#    inreplace 'src/process_pca/makefile' do |s|
+#      s.gsub! '-L/usr/lib'    , "-L#{HOMEBREW_PREFIX}/lib"
+#      s.gsub! '-I/usr/include', "-I#{HOMEBREW_PREFIX}/include"
+#    end
+#
     # Make sure pyqt is found
     inreplace 'python/ndm_checkconsistency/makefile' do |s|
       s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic5" 
@@ -40,14 +40,17 @@ class NdmanagerPlugins < Formula
       s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc5" 
     end
 
-   inreplace 'makefile' do |s|
+    inreplace 'makefile' do |s|
       s.gsub! '@echo "Making all in $(PYTHON_DIR)..."; (cd $(PYTHON_DIR); $(MAKE));', ''
       s.gsub! '@(cd $(PYTHON_DIR)$$i; $(MAKE) clean);', ''
       s.gsub! '@(cd $(PYTHON_DIR); $(MAKE) install);', ''
       s.gsub! '@(cd $(PYTHON_DIR)$$i; $(MAKE) uninstall);', ''
     end
 
-
+    inreplace 'scr/process_resample/makefile' do |s|
+      s.gsub! 'all: lib $(EXEC) doc' 'all: $(EXEC) doc'
+      s.gsub! 'LIBS = -L/usr/lib'  'LIBS = -L/usr/local/lib'
+    end
 
 
     # Removed 'extractled' since it can not be build for x64
