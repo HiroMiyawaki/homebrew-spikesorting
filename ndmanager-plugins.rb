@@ -51,7 +51,11 @@ class NdmanagerPlugins < Formula
     # Make sure xml docbook files can be found, to make sure local version is used.
     ENV['XML_CATALOG_FILES'] = "#{etc}/xml/catalog"
 
-    system "cmake", ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
+    inreplace 'src/CMakeLists.txt' do |s|
+      s.gsub! 'add_subdirectory(process_extractleds)', '' 
+      s.gsub! 'add_subdirectory(process_merge)', '' 
+   end  
+    system "cmake" , ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
     system "make install"
   end
 
