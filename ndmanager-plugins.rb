@@ -29,16 +29,16 @@ class NdmanagerPlugins < Formula
 #      s.gsub! '-I/usr/include', "-I#{HOMEBREW_PREFIX}/include"
 #    end
 #
-#    # Make sure pyqt is found
-#    inreplace 'python/ndm_checkconsistency/makefile' do |s|
-#      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic4" 
-#      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc4" 
-#    end
-#
-#    inreplace 'python/ndm_prepare/makefile' do |s|
-#      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic4" 
-#      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc4" 
-#    end
+    # Make sure pyqt is found
+    inreplace 'python/ndm_checkconsistency/makefile' do |s|
+      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic5" 
+      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc5" 
+    end
+
+    inreplace 'python/ndm_prepare/makefile' do |s|
+      s.gsub! '/usr/bin/pyuic4', "#{HOMEBREW_PREFIX}/bin/pyuic5" 
+      s.gsub! '/usr/bin/pyrcc4', "#{HOMEBREW_PREFIX}/bin/pyrcc5" 
+    end
 
     # Removed 'extractled' since it can not be build for x64
     rm_r 'src/process_extractleds'
