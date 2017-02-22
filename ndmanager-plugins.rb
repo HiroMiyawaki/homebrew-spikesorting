@@ -51,7 +51,7 @@ class NdmanagerPlugins < Formula
       s.gsub! 'all: lib $(EXEC) doc','all: $(EXEC) doc'
       s.gsub! 'LIBS = -L/usr/lib','LIBS = -L/usr/local/lib'
     end
-
+    rm_r 'src/process_resample/libsamplerate-0.1.8'
 
     # Removed 'extractled' since it can not be build for x64
     rm_r 'src/process_extractleds'
