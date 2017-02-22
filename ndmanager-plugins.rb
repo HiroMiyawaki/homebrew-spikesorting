@@ -53,6 +53,11 @@ class NdmanagerPlugins < Formula
       s.gsub! 'LIBSR_DIR = $(LIBSR)-0.1.8', ''
       s.gsub! 'LIBSRA = $(LIBSR_DIR)/src/.libs/$(LIBSR).a', 'LIBSRA = /usr/local/lib/$(LIBSR).a'    
     end
+
+    inreplace 'src/process_removeartefacts/process_removeartefacts.cpp' do |s|
+    	 s.gsub! 'main(int argc,char *argv[])','void main(int argc,char *argv[])'
+    end
+
     rm_r 'src/process_resample/libsamplerate-0.1.8'
 
     # Removed 'extractled' since it can not be build for x64
