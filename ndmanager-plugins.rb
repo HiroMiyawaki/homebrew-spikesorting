@@ -55,7 +55,7 @@ class NdmanagerPlugins < Formula
       s.gsub! 'add_subdirectory(process_extractleds)', '' 
       s.gsub! 'add_subdirectory(process_merge)', '' 
    end  
-    system "cmake" , "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args ,"."
+    system "cmake", ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
     system "make install"
   end
 
