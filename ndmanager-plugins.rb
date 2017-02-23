@@ -55,7 +55,7 @@ class NdmanagerPlugins < Formula
     end
 
     inreplace 'src/process_removeartefacts/process_removeartefacts.cpp' do |s|
-    	 s.gsub! 'main(int argc,char *argv[])','void main(int argc,char *argv[])'
+    	 s.gsub! 'main(int argc,char *argv[])','int main(int argc,char *argv[])'
     end
 
     rm_r 'src/process_resample/libsamplerate-0.1.8'
