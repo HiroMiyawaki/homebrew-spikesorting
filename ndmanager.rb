@@ -43,7 +43,6 @@ class Ndmanager < Formula
 
    end   
   
-   inreplace 'src/ndmanagerdoc.cpp','QString path = QStandardPaths::locate (QStandardPaths::ApplicationsLocation, QLatin1String("ndmanager/ndManagerDefault.xml"))', 'QString path = QStandardPaths::locate (QStandardPaths::ApplicationsLocation, QLatin1String("/usr/local/share/ndmanager/ndManagerDefault.xml"))'
 
    inreplace 'src/CMakeLists.txt','add_executable(ndmanager WIN32 ${ndmanager_SRCS} )',"add_executable(ndmanager WIN32 ${ndmanager_SRCS} )\nQT5_USE_MODULES(ndmanager WebEngineWidgets)"
 
