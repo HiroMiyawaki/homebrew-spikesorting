@@ -42,12 +42,15 @@ class Ndmanager < Formula
       s.gsub! 'html->settings()->setAttribute(QWebEngineSettings::JavaEnabled,false);',''
 
    end   
-   
+  
+    inreplace 'src/CMakeLists.txt','QString path = QStandardPaths::locate (QStandardPaths::ApplicationsLocation, QLatin1String("ndmanager/ndManagerDefault.xml"))'; 'QString path = QStandardPaths::locate (  QLatin1String("/usr/local/share/ndmanager/ndManagerDefault.xml""))'
+
    inreplace 'src/CMakeLists.txt','add_executable(ndmanager WIN32 ${ndmanager_SRCS} )',"add_executable(ndmanager WIN32 ${ndmanager_SRCS} )\nQT5_USE_MODULES(ndmanager WebEngineWidgets)"
 
 
 
     system "cmake", ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
     system "make install"
+    system "cp src/ndManagerDefault.xml /usr/local/share/ndmanager/ndManagerDefault.xml" 
   end
 end
