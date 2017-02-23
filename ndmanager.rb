@@ -51,6 +51,5 @@ class Ndmanager < Formula
 
     system "cmake", ".", "-DENFORCE_QT4_BUILD=OFF", *std_cmake_args
     system "make install"
-    system "cp src/ndManagerDefault.xml /usr/local/share/ndmanager/ndManagerDefault.xml" 
   end
 end
